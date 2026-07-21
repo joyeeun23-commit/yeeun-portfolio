@@ -99,7 +99,7 @@ export function initHero() {
 
   const loader = new THREE.GLTFLoader();
   loader.load(
-    "./assets/marionette.glb",
+    "./images/marionette.glb",
     (gltf) => {
       const model = gltf.scene;
       const box = new THREE.Box3().setFromObject(model);
@@ -470,4 +470,10 @@ export function initHero() {
     localPoint.z /= topSamples.length;
     return localPoint;
   }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initHero);
+} else {
+  initHero();
 }

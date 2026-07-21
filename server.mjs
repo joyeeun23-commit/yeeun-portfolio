@@ -20,7 +20,7 @@ const types = {
 createServer((request, response) => {
   const url = new URL(request.url || "/", `http://${request.headers.host}`);
   const decodedPath = decodeURIComponent(url.pathname);
-  const requested = decodedPath === "/" ? "/index.html" : decodedPath;
+  const requested = decodedPath === "/" ? "/Hero.html" : decodedPath;
   const filePath = resolve(join(root, requested));
 
   if (!filePath.startsWith(root) || !existsSync(filePath) || statSync(filePath).isDirectory()) {
